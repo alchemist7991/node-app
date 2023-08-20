@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  server:
+    build: ./app
+    ports:
+      - '8000:8000'
+    environment:
+      - PG_PASSWORD=123456
+      - PG_HOST=postgres_server
+      - PG_USER=admin
+      - PG_DB=node_app_pg_db
+      - REDIS_HOST=redis_server
+      - REDIS_PORT=6379
+    volumes:
+      - .:/src
+      - /src/node_modules
+    depends_on:
+      - postgres_server
+    links:
+      - redis_server
+  postgres_server:
+    image: 'postgres'
+    environment:
+      POSTGRES_PASSWORD: '123456'
+      POSTGRES_USER: 'admin'
+      POSTGRES_server: 'node_app_pg_db'
+    volumes:
+      - data:/var/lib/postgresql/data
+  redis_server:
+    image: redis:alpine
+    container_name: redis_server
+    restart: unless-stopped
+    expose:
+      - 6379
+volumes:
+  data:
