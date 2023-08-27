@@ -1,7 +1,7 @@
 const redis = require('redis');
 const util = require('util');
 
-const REDIS_HOST = process.env.REDIS_HOST || redis_server;
+const REDIS_HOST = process.env.REDIS_HOST || 'redis_server';
 const REDIS_PORT = process.env.REDIS_PORT || 6379;
 const redisUrl = `redis://${process.env.REDIS_HOST}:${REDIS_PORT}`;
 

@@ -1,8 +1,8 @@
 FROM node:15
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-RUN npm install -g nodemon
+# RUN npm install -g nodemon
 
 COPY . .
 
