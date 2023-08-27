@@ -14,6 +14,11 @@ Sample project using nodejs postgres and redis
 ### Remove Data Volumes
 `sudo docker volume ls -q | xargs sudo docker volume rm`
 
+### Boot up Redis Container
+```
+docker run p 6379:6379 redis:alpine 
+```
+
 ```
 docker ps -a # list of all running/stopped/exited containers
 docker images -a # list of images

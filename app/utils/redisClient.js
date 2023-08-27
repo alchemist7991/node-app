@@ -17,5 +17,7 @@ client.on("error", (error) => console.error(error))
 client.get = util.promisify(client.get);
 client.set = util.promisify(client.set);
 client.setex = util.promisify(client.setex);
+client.hget = util.promisify(client.hget);
+client.hset = util.promisify(client.hset);
 
 module.exports = client;
